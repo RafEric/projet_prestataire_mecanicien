@@ -42,6 +42,16 @@ npm run dev
 
 Application disponible sur : http://localhost:5173
 
+## Déploiement production (gratuit)
+
+- **Base de données** : [Neon](https://neon.tech) (PostgreSQL)
+- **Backend** : [Render](https://render.com)
+- **Frontend** : [Vercel](https://vercel.com)
+
+Guide complet : [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+Fichiers de configuration inclus : `render.yaml`, `backend/build.sh`, `frontend/vercel.json`.
+
 ## Endpoints API (phase 1)
 
 | Méthode | Endpoint | Description |

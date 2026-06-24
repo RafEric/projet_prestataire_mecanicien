@@ -1,0 +1,37 @@
+# Blueprint Render — https://render.com/docs/blueprint-spec
+# La base Neon se configure manuellement (voir DEPLOYMENT.md).
+
+services:
+  - type: web
+    name: prestataire-mecanicien-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: daphne -b 0.0.0.0 -p $PORT config.asgi:application
+    healthCheckPath: /api/v1/health/
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DJANGO_ENV
+        value: production
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: CORS_ALLOW_VERCEL_PREVIEWS
+        value: "True"
+      - key: CHANNEL_LAYER_BACKEND
+        value: channels.layers.InMemoryChannelLayer
+      - key: EMAIL_BACKEND
+        value: django.core.mail.backends.console.EmailBackend
