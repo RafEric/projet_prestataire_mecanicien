@@ -15,6 +15,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ResetPassword from "./pages/auth/ResetPassword";
 import Home from "./pages/Home";
+import PublicMechanicDetail from "./pages/PublicMechanicDetail";
 
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminMechanics from "./pages/admin/Mechanics";
@@ -50,6 +51,7 @@ function App() {
         <Routes>
           <Route element={<PublicLayout />}>
             <Route index element={<Home />} />
+            <Route path="mechanics/:id" element={<PublicMechanicDetail />} />
           </Route>
 
           <Route element={<AuthLayout />}>

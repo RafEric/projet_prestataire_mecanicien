@@ -11,13 +11,14 @@ export default function PublicLayout() {
         <Link to="/" className="logo">
           Prestataire Mécanicien
         </Link>
-        <nav>
+        <nav className="public-nav">
+          <a href="/#map" className="public-nav-link">Carte</a>
+          <a href="/#how-it-works" className="public-nav-link">Comment ça marche</a>
+          <a href="/#mechanics" className="public-nav-link">Mécaniciens</a>
           {isAuthenticated && user ? (
-            <>
-              <Link to={getDashboardPath(user.role)} className="btn-primary btn-sm">
-                Mon espace
-              </Link>
-            </>
+            <Link to={getDashboardPath(user.role)} className="btn-primary btn-sm">
+              Mon espace
+            </Link>
           ) : (
             <>
               <Link to="/login">Connexion</Link>
